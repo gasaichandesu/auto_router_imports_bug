@@ -1,4 +1,5 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:auto_router_imports_bug/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -7,8 +8,18 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Hello, world'),
+    return Scaffold(
+      body: Column(
+        children: [
+          const Text('Hello, world'),
+          MaterialButton(
+            child: const Text('Go to About page'),
+            onPressed: () => context.pushRoute(
+              const AboutRoute(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
